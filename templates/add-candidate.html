@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Add Candidates</h1>
+
+<p>Enter a name for a Candidate to be entered to the Ballots: </p>
+<form method="POST" action="/add-candidates">
+
+  <input type="text" name="candidate_name" />
+  <input type="submit" value="Enter Candidate" />
+
+</form>
+
+<h2>Candidates</h4>
+  <ul>
+    {% for candidate in candidates %}
+    <li>{{candidate.name}}</li>
+    {% endfor %}
+  </ul>  
+
+{% endblock %}

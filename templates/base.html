@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <!--
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    -->
+    <link rel="stylesheet" type="text/css" href="../static/styles/styles.css">
+  </head>
+  <body>
+
+    <nav>
+      <a href="/add-candidates">Add Candidate</a>
+      <a href="/">Introduction</a>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+ 
+      <ul>
+      {% for category,message in messages %}
+        <li class="{{category}}">{{message}}</li>
+      {% endfor %}
+      </ul>
+    {% endwith %}
+  </body>
+</html>

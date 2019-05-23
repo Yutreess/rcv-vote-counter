@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>RCV Example Election</h1>
+
+<p>I really don't know what the fuck I'm doing here to be honest.
+  Anyways, do all this shit or go die.
+</p>
+
+<a href="/add-candidates"> 1: Add Candidates</a>
+
+<h2>Candidates</h4>
+<ul>
+  {% for candidate in candidates %}
+  <li>{{candidate.name}}</li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}
