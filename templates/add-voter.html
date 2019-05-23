@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Register Voters</h1>
+
+<p>Enter a name for a Voter to be registered for the election: </p>
+<form method="POST" action="/add-candidates">
+
+  <input type="text" name="voter_name" />
+  <input type="submit" value="Register Voter" />
+
+</form>
+
+<h2>Voters</h4>
+  <ul>
+    {% for voter in voters %}
+    <li>{{voter.name}}</li>
+    {% endfor %}
+  </ul>  
+
+{% endblock %}

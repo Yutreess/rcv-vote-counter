@@ -32,5 +32,26 @@ def add_candidate():
     flash("Candidate added to Database.")
     return redirect("/add-candidates")
 
+# Display Add Voter Form
+@app.route("/add-voters", methods=['GET'])
+def voter_form():
+  voters = Voter.query.all()
+  return render_template("add-voter.html", voters=voters)
+
+# Process Add Voter Form
+@app.route("/add-voters", methods=['POST'])
+def add_voter():
+  voter_name = request.form['voter_name']
+
+  if not voter_name:
+    flash("Please enter a Voter Name.")
+    return render_template("add-voter.html", voters=voters)
+  else:
+    newVoter = Voter(voter_name)
+    db.session.add(newVoter)
+    db.session.commit()
+    flash("Voter added to Database.")
+    return redirect("/add-voters")
+
 if __name__ == "__main__":
   app.run()
